@@ -1,11 +1,19 @@
-FROM teamvaders/hellbot:latest
+FROM debian:latest
 
-RUN git clone https://github.com/TheVaders/InVade.git /root/hellbot
+RUN apt update && apt upgrade -y
 
-WORKDIR /root/hellbot
+RUN apt install git curl python3-pip ffmpeg -y
+
+RUN pip3 install -U pip
+
+RUN cd /
+
+RUN git clone https://github.com/Veronica0706/HellBot
+
+RUN cd HellBot
+
+WORKDIR HellBot
 
 RUN pip3 install -U -r requirements.txt
 
-ENV PATH="/home/hellbot/bin:$PATH"
-
-CMD ["python3", "-m", "hellbot"]
+CMD python3 bash Hellbot
