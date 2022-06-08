@@ -16,4 +16,4 @@ WORKDIR HellBot
 
 RUN pip3 install -U -r requirements.txt
 
-CMD python3 bash Hellbot
+PROCFILE python3 bash Hellbot
